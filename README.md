@@ -1,2 +1,2 @@
 # water
-Water delivary app
+Water delivery app
