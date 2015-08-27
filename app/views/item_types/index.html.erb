@@ -1,0 +1,28 @@
+<div class="container">
+  <h3>Справочник категорий товаров</h3>
+  <div class="col-md-8">
+    <%= link_to "Добавить новую категорию", new_item_type_path, class: "btn btn-primary btn-xs" %>
+  </div>
+  <br><br>
+  <div class="col-md-8">
+    <table class="table table-hover table-condensed">
+  	  <tr>
+  	    <td><strong>#ID</strong></td>
+  	    <td><strong>Наименование</strong></td>
+  	    <td><strong>Операции</strong></td>
+  	  </tr>
+  	  <% @categories.each do |c| %>
+        <tr>
+  	      <td><%= c.id %></td>
+  	      <td><%= c.name %></td>
+  	      <td><%= link_to "Редактировать", edit_item_type_path(c), class: "btn btn-primary btn-xs" %>
+  	          <%= link_to "Удалить", 
+  	                      item_type_path(c), 
+                          method: :delete,
+                          data: { confirm: "Удалить категорию?" },
+  	                      class: "btn btn-primary btn-xs" %></td>
+  	    </tr>
+  	  <% end %>
+    </table>
+  </div>
+</div>

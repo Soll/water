@@ -1,0 +1,5 @@
+<div class="container">
+  <h3>Редактирование категории</h3>
+  <%= link_to "К списку категорий", item_types_path, class: "btn btn-primary btn-xs" %>
+    <%= render partial: "item_type_new_edit", locals: {item_type: @category} %>
+</div>

@@ -1,0 +1,9 @@
+<%= form_for @category do |i| %>
+      <div class="form-group">
+        <label >Наименование категории</label>
+          <%= i.text_field :name, class: "form_control", type: "text" %>
+      </div>
+      <div class="form-group">
+        <%= i.submit "Добавить", class: "btn btn-primary btn-sm" %>
+      </div>
+    <% end %>
