@@ -38,7 +38,7 @@ class ItemTypesController < ApplicationController
     redirect_to item_types_path
   end
 
-private
+  private
 
   def set_category
     @category = ItemType.find(params[:id])
