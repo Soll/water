@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root "home#index"
-  resources :item_types
+  resources :item_types, :items
 end
