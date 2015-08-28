@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-	before_action :set_item, only: [:edit, :update, :destroy]
-  
+  before_action :set_item, only:[:edit, :update, :destroy]
+
   def index
     @items = Item.all
   end
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-	def item_params
-    params.require(:item).permit(:name, :item_type_id)	
-	end
+  def item_params
+    params.require(:item).permit(:name, :item_type_id)
+  end
 end
