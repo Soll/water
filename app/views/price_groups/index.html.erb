@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>Справочник ценовых групп</h3>
+  <div class="col-md-8">
+    <%= link_to "Добавить новую ценовую группу", new_price_group_path, class: "btn btn-primary btn-xs" %>
+  </div>
+  <br><br>
+  <div class="col-md-8">
+    <table class="table table-hover table-condensed">
+  	  <tr>
+  	    <td><strong>#ID</strong></td>
+  	    <td><strong>Наименование</strong></td>
+  	    <td><strong>Операции</strong></td>
+  	  </tr>
+  	  <% @price_groups.each do |p| %>
+        <tr>
+  	      <td><%= p.id %></td>
+  	      <td><%= p.name %></td>
+          <td><%= link_to "Добавить позиции в ценовую группу", price_group_path(p), class: "btn btn-primary btn-xs" %>
+          <%= link_to "Редактировать", edit_price_group_path(p), class: "btn btn-primary btn-xs" %>
+  	          <%= link_to "Удалить", 
+  	                      price_group_path(p), 
+                          method: :delete,
+                          data: { confirm: "Удалить ценовую группу? (содержимое так же будет удалено!!!)" },
+  	                      class: "btn btn-primary btn-xs" %></td>
+  	    </tr>
+  	  <% end %>
+    </table>
+  </div>
+</div>
