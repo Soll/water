@@ -19,6 +19,7 @@ class PriceGroupsController < ApplicationController
   end
 
   def show
+    @pgls = @price_group.price_group_lines.all
   end
 
   def edit
@@ -45,6 +46,11 @@ class PriceGroupsController < ApplicationController
   end
 
   def price_group_params
-    params.require(:price_group).permit(:name)
+    params.require(:price_group).permit(:name, price_group_lines_attributes:
+                                        [:id,
+                                         :item_id,
+                                         :price_group_id,
+                                         :amount,
+                                         :price])
   end
 end
