@@ -1,0 +1,10 @@
+<%= form_for @price_group do |p| %>
+      <div class="form-group">
+        <label >Наименование ценовой группы</label>
+          <%= p.text_field :name, class: "form_control", type: "text" %>
+      </div>
+
+      <div class="form-group">
+        <%= p.submit "Добавить", class: "btn btn-primary btn-sm" %>
+      </div>
+    <% end %>
