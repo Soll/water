@@ -24,16 +24,21 @@ class PriceGroupLinesController < ApplicationController
   end
 
   def destroy
-  	@pgl.destroy
-  	redirect_to price_groups_path
+    @pgl.destroy
+    redirect_to price_groups_path
   end
 
   private
+
     def set_price_group_line
       @pgl = PriceGroupLine.find(params[:id])
     end
 
     def pgl_params
-      params.require(:price_group_line).permit(:id, :item_id, :price_group_id, :amount, :price)
+      params.require(:price_group_line).permit(:id,
+      	                                       :item_id,
+      	                                       :price_group_id,
+      	                                       :amount,
+      	                                       :price)
     end
 end
