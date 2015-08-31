@@ -1,0 +1,44 @@
+<div class="container">
+  
+  <h3>Информация о ценовой группе</h3>
+  <h4><strong>Наименование: </strong> 
+    <%= @price_group.name %> 
+    <%= link_to "Редактировать наименование", edit_price_group_path(@price_group.id),
+        class: "btn btn-primary btn-xs" %> </h4>
+    <h4>Содержание ценовой группы:</h4>
+    <div class="col-md-8">
+    <table class="table table-hover table-condensed">
+  	  <tr>
+  	    <td><strong>#ID</strong></td>
+  	    <td><strong>Наименование товара</strong></td>
+  	    <td><strong>Количество, от</strong></td>
+  	    <td><strong>Цена</strong></td>
+        <td><strong>Операции</strong></td>
+  	  </tr>
+    
+    <% if @pgls %>
+    <% @pgls.each do |c| %>
+      <tr>
+        <td> <%= c.id %> </td>
+        <td> <%= c.item.name %> </td>
+        <td> <%= c.amount %> </td>
+        <td> <%= c.price %> </td>
+        <td> <%= link_to "Редактировать", edit_price_group_line_path(c.id), class: "btn btn-primary btn-xs" %>
+              <%= link_to "Удалить", 
+                          price_group_line_path(c.id), 
+                          method: :delete,
+                          data: { confirm: "Удалить позицию?" },
+                          class: "btn btn-primary btn-xs" %></td>
+      </tr>
+    <% end %>
+    <% end %>
+    </table>
+  </div>
+  
+  <div class="col-md-5">
+    <h4>Добавление позиций в ценовую группу</h4>
+  	<%= render partial: "pgl_form", locals: {price_group: @price_group} %>
+
+  </div>
+
+</div>
