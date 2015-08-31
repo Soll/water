@@ -13,6 +13,7 @@
   	    <td><strong>Наименование товара</strong></td>
   	    <td><strong>Количество, от</strong></td>
   	    <td><strong>Цена</strong></td>
+        <td><strong>Операции</strong></td>
   	  </tr>
     
     <% if @pgls %>
@@ -22,6 +23,12 @@
         <td> <%= c.item.name %> </td>
         <td> <%= c.amount %> </td>
         <td> <%= c.price %> </td>
+        <td> <%= link_to "Редактировать", edit_price_group_line_path(c.id), class: "btn btn-primary btn-xs" %>
+              <%= link_to "Удалить", 
+                          price_group_line_path(c.id), 
+                          method: :delete,
+                          data: { confirm: "Удалить позицию?" },
+                          class: "btn btn-primary btn-xs" %></td>
       </tr>
     <% end %>
     <% end %>

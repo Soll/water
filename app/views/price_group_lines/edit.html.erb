@@ -1,0 +1,5 @@
+<div class="container">
+  <h3>Редактирование позиции</h3>
+  <%= link_to "К списку ценовых групп", price_groups_path, class: "btn btn-primary btn-xs" %>
+    <%= render partial: "pgl_edit", locals: {pgl: @pgl} %>
+</div>

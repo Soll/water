@@ -1,0 +1,20 @@
+<%= form_for @pgl do |pgl| %>
+      <div class="form-group">
+        <label >Товар</label>
+          <%= pgl.select :item_id, Item.all.map { |c| [c.name, c.id] }, {}, class: "form_control" %>
+      </div>
+      
+      <div class="form-group">
+        <label >Количество, от</label>
+          <%= pgl.text_field :amount, class: "form_control", type: "text" %>
+      </div>
+
+      <div class="form-group">
+        <label >Цена за указанное количество</label>
+          <%= pgl.text_field :price, class: "form_control", type: "text" %>
+      </div>
+
+      <div class="form-group">
+        <%= pgl.submit "Добавить", class: "btn btn-primary btn-sm" %>
+      </div>
+    <% end %>
