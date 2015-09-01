@@ -1,5 +1,6 @@
 class PriceGroup < ActiveRecord::Base
   has_many :price_group_lines, dependent: :destroy
+  has_many :customers
 
   validates :name, presence: true
   validates :name, uniqueness: true

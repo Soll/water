@@ -1,0 +1,18 @@
+<div class="container">
+ <div class="col-md-8"> 
+  <h3>Информация о контрагенте</h3>
+  <h4><strong>Наименование: </strong> 
+    <%= @customer.full_name %> 
+    <%= link_to "Редактировать", edit_customer_path(@customer.id),
+        class: "btn btn-primary btn-xs" %> </h4>
+    <h4>Привязать ценовую группу к контрагенту:</h4>
+  </div>    
+  <div class="col-md-5">
+    <%= render partial: "pg_form", locals: {customer: @customer} %>
+  </div>
+
+<div class="col-md-8">
+  <h4>Адреса доставки контрагента:</h4>
+</div>
+
+</div>

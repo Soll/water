@@ -21,7 +21,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Водовоз</a>
+      <%= link_to "Водовоз", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,7 +32,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Справочники <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Контрагенты</a></li>
+            <li><%= link_to "Контрагенты", customers_path %></li>
             <li><%= link_to "Ценовые группы", price_groups_path %></li>
             <li><%= link_to "Товары", items_path %></li>
             <li><%= link_to "Категории товаров", item_types_path %></li>

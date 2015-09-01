@@ -1,0 +1,5 @@
+<div class="container">
+  <h3>Редактирование контрагента</h3>
+  <%= link_to "К списку контргенетов", customers_path, class: "btn btn-primary btn-xs" %>
+    <%= render partial: "customer_new_edit", locals: { customer: @customer} %>
+</div>

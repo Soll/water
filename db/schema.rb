@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830100323) do
+ActiveRecord::Schema.define(version: 20150831072859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "short_name"
+    t.string   "full_name"
+    t.string   "phone"
+    t.string   "adres"
+    t.integer  "price_group_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "customers", ["price_group_id"], name: "index_customers_on_price_group_id", using: :btree
 
   create_table "item_types", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150830100323) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "customers", "price_groups"
   add_foreign_key "items", "item_types"
   add_foreign_key "price_group_lines", "items"
   add_foreign_key "price_group_lines", "price_groups"

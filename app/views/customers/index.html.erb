@@ -1,0 +1,43 @@
+<div class="container">
+  <h3>Справочник контрагентов</h3>
+  <div class="col-md-8">
+    <%= link_to "Добавить нового контрагента", new_customer_path, class: "btn btn-primary btn-xs" %>
+  </div>
+  <br><br>
+  <div class="col-md-11">
+    <table class="table table-hover table-condensed">
+  	  <tr>
+  	    <td><strong>#ID</strong></td>
+  	    <td><strong>Наименование</strong></td>
+        <td><strong>Краткое наименование</strong></td>
+        <td><strong>Телефон</strong></td>
+        <td><strong>Основной адрес</strong></td>
+        <td><strong>Ценовая группа</strong></td>
+  	    <td><strong>Операции</strong></td>
+  	  </tr>
+  	  <% @customers.each do |c| %>
+        <tr>
+  	      <td><%= c.id %></td>
+  	      <td><%= c.full_name %></td>
+          <td><%= c.short_name %></td>
+          <td><%= c.phone %></td>
+          <td><%= c.adres %></td>
+          <td>
+          <% if c.price_group %>
+            <%= c.price_group.name %>
+          <% else %>
+            <%= "-" %>
+          <% end %>
+          </td>
+          <td><%= link_to "Просмотр", customer_path(c), class: "btn btn-primary btn-xs" %>
+          <%= link_to "Редактировать", edit_customer_path(c), class: "btn btn-primary btn-xs" %>
+  	          <%= link_to "Удалить", 
+  	                      customer_path(c), 
+                          method: :delete,
+                          data: { confirm: "Удалить контрагента? (адреса так же будут удалены!!!)" },
+  	                      class: "btn btn-primary btn-xs" %></td>
+  	    </tr>
+  	  <% end %>
+    </table>
+  </div>
+</div>
