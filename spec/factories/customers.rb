@@ -6,5 +6,4 @@ FactoryGirl.define do
     adres "MyString"
     price_group nil
   end
-
 end
