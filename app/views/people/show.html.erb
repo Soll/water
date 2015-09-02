@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+ <div class="col-md-8"> 
+  <h3>Информация о сотруднике</h3>
+  <%= link_to "К списку сотрудников", people_path, class: "btn btn-primary btn-xs" %>
+  <br/><br/>
+  <table class="table table-hover table-condensed">
+      <tr>
+        <td><strong>#ID</strong></td>
+        <td><strong>ФИО</strong></td>
+        <td><strong>Должность</strong></td>
+        <td><strong>Операции</strong></td>
+      </tr>
+      <tr>
+        <td> <%= @person.id %> </td>
+        <td> <%= @person.name %> </td>
+        <td> <%= @person.position %> </td>
+        <td> <%= link_to "Редактировать", edit_person_path(@person), class: "btn btn-primary btn-xs" %>
+              <%= link_to "Удалить", 
+                          person_path(@person), 
+                          method: :delete,
+                          data: { confirm: "Удалить сотрудника?" },
+                          class: "btn btn-primary btn-xs" %></td>
+      </tr>
+    </table>
+</div>
+
+</div>
