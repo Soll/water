@@ -1,0 +1,26 @@
+<%= form_for(@person) do |f| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+      <ul>
+      <% @person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label>ФИО сотрудника</label>
+    <%= f.text_field :name, class: "form_control", type: "text" %>
+  </div>
+
+  <div class="form-group">
+    <label>Должность</label>
+    <%= f.text_field :position, class: "form_control", type: "text" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.submit "Добавить", class: "btn btn-primary btn-sm" %>
+  </div>
+<% end %>

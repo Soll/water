@@ -1,0 +1,5 @@
+<div class="container">
+  <h3>Редактирование сотрудника</h3>
+  <%= link_to "К списку сотрудников", people_path, class: "btn btn-primary btn-xs" %>
+    <%= render partial: "form", locals: { person: @person} %>
+</div>
