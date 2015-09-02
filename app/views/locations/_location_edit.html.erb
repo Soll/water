@@ -1,0 +1,20 @@
+<%= form_for @location do |loc| %>
+      <div class="form-group">
+        <label>Адрес</label>
+          <%= loc.text_field :adres, class: "form_control", type: "text" %>
+      </div>
+
+      <div class="form-group">
+        <label>Телефон</label>
+          <%= loc.text_field :phone, class: "form_control", type: "text" %>
+      </div>
+
+      <div class="form-group">
+        <label>Дополнительная информация (код домофона и т.п.)</label>
+          <%= loc.text_field :info, class: "form_control", type: "text" %>
+      </div>
+
+      <div class="form-group">
+        <%= loc.submit "Добавить", class: "btn btn-primary btn-sm" %>
+      </div>
+    <% end %>
