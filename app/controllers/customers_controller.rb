@@ -22,6 +22,7 @@ class CustomersController < ApplicationController
   end
 
   def show
+    @locations = @customer.locations.all
   end
 
   def update

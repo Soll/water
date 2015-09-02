@@ -13,6 +13,34 @@
 
 <div class="col-md-8">
   <h4>Адреса доставки контрагента:</h4>
+  <table class="table table-hover table-condensed">
+      <tr>
+        <td><strong>#ID</strong></td>
+        <td><strong>Адрес доставки</strong></td>
+        <td><strong>Телефоны</strong></td>
+        <td><strong>Дополнительная информация</strong></td>
+        <td><strong>Операции</strong></td>
+      </tr>
+    
+    <% if @locations %>
+    <% @locations.each do |l| %>
+      <tr>
+        <td> <%= l.id %> </td>
+        <td> <%= l.adres %> </td>
+        <td> <%= l.phone %> </td>
+        <td> <%= l.info %> </td>
+        <td> <%= link_to "Редактировать", edit_location_path(l.id), class: "btn btn-primary btn-xs" %>
+              <%= link_to "Удалить", 
+                          location_path(l.id), 
+                          method: :delete,
+                          data: { confirm: "Удалить адрес?" },
+                          class: "btn btn-primary btn-xs" %></td>
+      </tr>
+    <% end %>
+    <% end %>
+    </table>
+
+  <%= render partial: "location_form", locals: {customer: @customer} %>
 </div>
 
 </div>

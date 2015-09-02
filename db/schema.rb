@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831072859) do
+ActiveRecord::Schema.define(version: 20150902052426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 20150831072859) do
 
   add_index "items", ["item_type_id"], name: "index_items_on_item_type_id", using: :btree
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "adres"
+    t.string   "phone"
+    t.string   "info"
+    t.integer  "customer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "locations", ["customer_id"], name: "index_locations_on_customer_id", using: :btree
+
   create_table "price_group_lines", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "price_group_id"
@@ -63,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150831072859) do
 
   add_foreign_key "customers", "price_groups"
   add_foreign_key "items", "item_types"
+  add_foreign_key "locations", "customers"
   add_foreign_key "price_group_lines", "items"
   add_foreign_key "price_group_lines", "price_groups"
 end

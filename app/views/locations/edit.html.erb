@@ -1,0 +1,5 @@
+<div class="container">
+  <h3>Редактирование адреса</h3>
+  <%= link_to "К списку контрагентов", customers_path, class: "btn btn-primary btn-xs" %>
+    <%= render partial: "location_edit", locals: {location: @location} %>
+</div>
